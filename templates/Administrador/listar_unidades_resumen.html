@@ -1,0 +1,30 @@
+{% extends 'Home.html' %} {% block content %}
+    <br>
+    <br>
+    <h1 class="text-center">Gestión de Unidades Internas</h1>
+    <hr class="hr-blurry"/>
+    <div class="container py-9">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Id Unidad Interna</th>
+                <th scope="col">Nombre Unidad Interna</th>
+                <th scope="col">Empresa</th>
+            <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for t in uni %}
+                <tr>
+                <td>{{ t.unidad_interna_id_unidad.id_unidad }}</td>
+                    <td>{{ t.unidad_interna_id_unidad.nombre_unidad }}</td>
+                    <td>{{ t.empresa_id_empresa.nombre_empresa }}</td>
+                    <td>
+                    <a class="btn btn-primary" href="">Ver Usuarios</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends 'Home.html' %} {% block content %}
+<br />
+<br />
+<h1 class="text-center">Tarea: {{ tarea.nombre_tarea }}</h1>
+<hr class="hr-blurry" />
+<div class="row px-5">
+    <div class="col-lg-7 my-3">
+      <div class="card">
+        <div class="card-body">
+          <hr />
+          <blockquote class="card-blockquote">
+            <h5>ID de Tarea</h5>
+            <p>{{ tarea.id_tarea }}</p>
+            <h5>Nombre de Tarea</h5>
+            <p>{{ tarea.nombre_tarea }}</p>
+            <h5>Descripción de Tarea</h5>
+            <p>{{ tarea.descripcion_tarea }}</p>
+            <h5>Fecha inicio de Tarea</h5>
+            <p>{{ tarea.fecha_inicio }}</p>
+            <h5>Fecha termino de Tarea</h5>
+            <p>{{ tarea.fecha_termino }}</p>
+            <h5>Estado de avance de Tarea</h5>
+            <p>{{ tarea.avance }}</p>
+            <h5>Usuario asignado a la Tarea</h5>
+            <p>{{ tarea.usuario_id_usuario.nombre_usuario }}</p>
+            <h5>Flujo al que pertenece la Tarea</h5>
+            <p>{{ tarea.flujo_de_tarea_id_flujo.nombre_flujo }}</p>
+          </blockquote>
+        </div>
+        <br />
+        <a
+          type="button"
+          class="btn btn-primary btn-lg"
+          style="background-color: #5c6bc0"
+          href="{% url 'crear_problema' %}"
+          >Reportar Problema</a
+        >
+      </div>
+    </div>
+    <div class="col-lg-5 my-3">
+      <div class="row d-flex justify-content-center">
+        <h2 class="text-center">Semaforo</h2>
+        <hr class="hr-blurry" />
+        {% if fecha_final < fecha_actual %}
+        <img src="../../static/cancelar.png" class="img-fluid py-5" />
+        <div class="alert alert-danger text-center" role="alert">
+            Se ha registrado un atraso en el desarrollo de la tarea!
+          </div>
+        
+        {% elif fecha_amarilla < fecha_actual %}
+        <img src="../../static/alerta.png" class="img-fluid py-5" />
+        <div class="alert alert-warning text-center" role="alert">
+            Se ha detectado que la tarea se encuentra en el plazo de 1 semana para su entrega!
+          </div>
+        
+        {% else %}
+        <img src="../../static/aceptar.png" class="img-fluid py-5" />
+        <div class="alert alert-success text-center" role="alert">
+            La Tarea se encuentra en plazo de desarrollo
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

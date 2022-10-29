@@ -1,0 +1,45 @@
+{% extends 'Home.html' %} {% block content %}
+<br>
+<br>
+<h1 class="text-center">Gestión de Tareas</h1>
+<hr class="hr-blurry" />
+
+<div class="container py-9">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id Tarea</th>
+            <th scope="col">Nombre Tarea</th>
+            <th scope="col">Descripcion Tarea</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Termino</th>
+            <th scope="col">Avance</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Flujo de Tarea</th>
+            <th scope="col">Opciones</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in tareas %}
+          <tr>
+            <td>{{ t.id_tarea }}</td>
+            <td>{{ t.nombre_tarea }}</td>
+            <td>{{ t.descripcion_tarea }}</td>
+            <td>{{ t.fecha_inicio }}</td>
+            <td>{{ t.fecha_termino }}</td>
+            <td>{{ t.avance }}</td>
+            <td>{{ t.usuario_id_usuario.nombre_usuario }}</td>
+            <td>{{ t.flujo_de_tarea_id_flujo.nombre_flujo }}</td>
+            <td><a class="btn btn-primary" href="{% url 'mod_tarea' t.id_tarea %}">Modificar</a></td>
+            <td>
+              <a class="btn btn-primary" href="{% url 'abrir_tareas' t.id_tarea %}">Abrir Tarea</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content %}

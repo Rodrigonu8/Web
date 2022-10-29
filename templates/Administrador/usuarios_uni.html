@@ -1,0 +1,38 @@
+{% extends 'Home.html' %} {% block content %}
+<br>
+<br>
+<h1 class="text-center">Listado de Empleados</h1>
+<hr class="hr-blurry" />
+
+<div class="container py-9">
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">ID del Empleado</th>
+<th scope="col">Nombre Completo</th>
+<th scope="col">Correo del Usuario</th>
+<th scope="col">Empresa</th>
+<th scope="col">Rol</th>
+<th scope="col">Unidad Interna</th>
+<th scope="col">Opciones</th>
+</tr>
+</thead>
+<tbody>
+{% for t in users %}
+<tr>
+<td>{{ t.id_usuario }}</td>
+<td>{{ t.nombre_usuario }}</td>
+<td>{{ t.correo_usuario }}</td>
+<td>{{ t.empresa_id_empresa.nombre_empresa }}</td>
+<td>{{ t.rol_id_rol.nombre_rol }}</td>
+<td>{{ t.unidad_interna_id_unidad.nombre_unidad }}</td>
+<td>
+<a class="btn btn-primary" href="{% url 'tareas_usuarios' t.id_usuario %}">Ver Carga Laboral</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+{% endblock content %}

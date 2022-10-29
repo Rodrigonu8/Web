@@ -1,0 +1,41 @@
+{% extends 'Home.html' %} {% block content %}
+<br />
+<br />
+<h1 class="text-center">Tarea: {{ tarea.nombre_tarea_sub }}</h1>
+<hr class="hr-blurry" />
+
+<div class="container py-9">
+  <div class="card">
+    <div class="card-header">Información</div>
+    <div class="card-body">
+      <blockquote class="card-blockquote">
+        <h5>ID de Tarea</h5>
+        <p>{{ tarea.id_tarea_sub }}</p>
+        <h5>Nombre de Tarea</h5>
+        <p>{{ tarea.nombre_tarea_sub }}</p>
+        <h5>Descripción de Tarea</h5>
+        <p>{{ tarea.descripcion_tarea_sub }}</p>
+        <h5>Fecha inicio de Tarea</h5>
+        <p>{{ tarea.fecha_inicio_sub }}</p>
+        <h5>Fecha termino de Tarea</h5>
+        <p>{{ tarea.fecha_termino_sub }}</p>
+        <h5>Estado de avance de Tarea</h5>
+        <p>{{ tarea.avance }}</p>
+        <h5>Usuario asignado a la Tarea</h5>
+        <p>{{ tarea.usuario_id_usuario.nombre_usuario }}</p>
+        <h5>Flujo al que pertenece la Tarea</h5>
+        <p>{{ tarea.flujo_de_tarea_id_flujo.nombre_flujo }}</p>
+      </blockquote>
+    </div>
+  </div>
+  <br>
+  <a
+  type="button"
+  class="btn btn-primary btn-lg"
+  style="background-color: #5c6bc0"
+  href="{% url 'crear_problema' %}"
+  >Reportar Problema</a
+>
+</div>
+
+{% endblock content %}

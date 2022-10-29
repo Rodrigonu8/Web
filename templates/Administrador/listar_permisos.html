@@ -1,0 +1,26 @@
+{% extends 'Home.html' %} {% block content %}
+<br>
+<br>
+<h1 class="text-center">Gestión de Rol</h1>
+<hr class="hr-blurry" />
+<div class="container py-9">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Rol</th>
+            <th scope="col">Id Permiso</th>
+            <th scope="col">Permisos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in permi %}
+          <tr>
+            <td>{{ t.rol_id_rol.nombre_rol }}</td>
+            <td>{{ t.id_permiso}}</td>
+            <td>{{ t.nombre_permiso }}</td>            
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock content %}

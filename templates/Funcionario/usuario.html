@@ -1,0 +1,41 @@
+{% extends 'Home.html' %} {% block content %}
+    <br/>
+    <br/>
+    <div class="">
+    <div class="row d-flex justify-content-center">
+    <h2 class="text-center">Carga Laboral del Empleado:</h2>
+    <h3 class="text-center">{{ usuario.nombre_usuario }}</h3>
+    <hr class="hr-blurry"/>
+    <img
+            src="../../static/Usuario.png"
+            class="img-fluid" style="  height: 10%; width: 10%;"
+    />
+    <div>
+    <div class="follow" style="display: flex;
+    width: 95%;
+    justify-content: space-around;
+    margin: 30px auto;
+    text-align: center;
+    border-bottom: 2px solid #ECEEEF;
+    padding-bottom: 20px;">
+        <div>
+            <h5>ID Empleado</h5>
+            <p>{{ usuario.id_usuario }}</p>
+        </div>
+        <div>
+            <h5>Empresa</h5>
+            <p>{{ usuario.empresa_id_empresa.nombre_empresa }}</p>
+        </div>
+        <div>
+            <h5>Unidad Interna</h5>
+            <p>{{ usuario.unidad_interna_id_unidad.nombre_unidad }}</p>
+        </div>
+        <div>
+            <h5>Rol</h5>
+            <p>{{ usuario.rol_id_rol.nombre_rol }}</p>
+        </div>
+    </div>
+
+
+{% endblock content %}
+

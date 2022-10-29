@@ -1,0 +1,28 @@
+{% extends 'Home.html' %} {% block content %}
+<br>
+<br>
+<h1 class="text-center">Listado de Problemas</h1>
+<hr class="hr-blurry" />
+
+<div class="container py-9">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id Problema</th>
+            <th scope="col">Comentario</th>
+            <th scope="col">Plazo de Solución</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in reporte %}
+          <tr>
+            <td>{{ t.id_problema }}</td>
+            <td>{{ t.comentario }}</td>
+            <td>{{ t.plazo_solucion }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content %}

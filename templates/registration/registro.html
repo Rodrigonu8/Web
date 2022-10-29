@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2>Ingresa tus credenciales</h2>
+          <hr />
+          <form action="" method="post">
+            {% csrf_token %} {{ form }}
+            <input type="submit" value="Ingresa" class="btn btn-success float-right" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

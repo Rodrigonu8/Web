@@ -1,0 +1,26 @@
+{% extends 'Home.html' %} {% block content %}
+<br>
+<br>
+<h1 class="text-center">Gestión de Unidades Internas</h1>
+<hr class="hr-blurry" />
+<div class="container py-9">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id Unidad Interna</th>
+            <th scope="col">Nombre Unidad Interna</th>
+            <th scope="col">Empresa</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in uniint %}
+          <tr>
+            <td>{{ t.id_unidad }}</td>
+            <td>{{ t.nombre_unidad }}</td>
+            <td>{{ t.empresa_id_empresa.nombre_empresa }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock content %}

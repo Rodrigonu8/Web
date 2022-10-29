@@ -1,0 +1,141 @@
+{% extends 'Home.html' %} {% block content %}
+<div
+  class="jumbotron jumbotron-fullheight jumbo-vertical-center text-light text-center height 50%"
+  style="background-color: #5c6bc0"
+>
+  <div class="container">
+    <h1 class="display-2 text-light text-uppercase">
+      Bienvenido a Proccess SA
+    </h1>
+    <img src="../static/Logo.png" class="img-fluid py-5" style="width: 10%;"/>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="">
+        <div class="jumbotron p-2 text-center" id="header">
+          {% if user.is_authenticated %}
+          <p class="lead">Se ha accedido con una cuenta:</p>
+          <h4>{{ user.username }}</h4>
+          {% endif %} {% if not user.is_authenticated %}
+          <p class="lead">¡Inicia Sesión para Acceder al sistema!</p>
+          <a
+            type="button"
+            class="btn btn-primary btn-lg"
+            href="{% url 'login' %}"
+            >Iniciar Sesión</a
+          >
+          {% endif %}
+        </div>
+      </div>
+      <hr class="hr hr-blurry" />
+      <div class="">
+        {% if user.is_superuser %}
+        <div class="card py-9 shadow-lg">
+          <h5 class="card-header">Gestión de Empresas</h5>
+          <div class="card-body d-grid gap-2 col-6 mx-auto">
+            <h5 class="card-title .text-justify">
+              Mantenedor Completo de Empresas en donde podrá ver las empresas
+              asociadas, como también administrar sus Unidades Internas
+            </h5>
+            <a
+              type="button"
+              class="btn btn-primary btn-lg"
+              style="background-color: #5c6bc0"
+              href="{% url 'listar_empresas' %}"
+              >Empresas</a
+            >
+            <a
+              type="button"
+              class="btn btn-primary btn-lg"
+              style="background-color: #5c6bc0"
+              href="{% url 'crear_uni' %}"
+              >Unidades Internas</a
+            >
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="card py-9 shadow-lg">
+          <h5 class="card-header">Gestión de Usuarios</h5>
+          <div class="card-body d-grid gap-2 col-6 mx-auto">
+            <h5 class="card-title .text-justify">
+              Mantenedor Completo de Usuarios en donde podrá crear, listar los
+              usuarios creados y asignar roles
+            </h5>
+            <a
+              type="button"
+              class="btn btn-primary btn-lg"
+              style="background-color: #5c6bc0"
+              href="{% url 'crear_usuario' %}"
+              >Usuarios</a
+            >
+            <a
+              type="button"
+              class="btn btn-primary btn-lg"
+              style="background-color: #5c6bc0"
+              href="{% url 'crear_rol' %}"
+              >Roles</a
+            >
+          </div>
+        </div>
+        <br />
+        <br />
+        {% endif %} {% if user.is_authenticated %}
+        <div class="card shadow-lg">
+          <h5 class="card-header">Gestión de Tareas</h5>
+          <div class="card-body d-grid gap-2 col-6 mx-auto">
+            <h5 class="card-title">
+              Accede a la administración de Tareas y Flujos
+              de Tareas.
+            </h5>
+            <a
+              type="button"
+              class="btn btn-primary btn-lg"
+              style="background-color: #5c6bc0"
+              href="{% url 'crear_tarea' %}"
+              >Tareas</a
+            >
+            <a
+              type="button"
+              class="btn btn-primary btn-lg"
+              style="background-color: #5c6bc0"
+              href="{% url 'crear_flujo' %}"
+              >Flujo De Tareas</a
+            >
+          </div>
+        </div>
+        <br>
+        <br>
+       <div class="card shadow-lg">
+       <h5 class="card-header">Reportes</h5>
+       <div class="card-body d-grid gap-2 col-6 mx-auto">
+       <h5 class="card-title">
+       Accede a estadisticas de las empresas y sus empleados.
+       </h5>
+       <a
+       type="button"
+       class="btn btn-primary btn-lg"
+       style="background-color: #5c6bc0"
+       href="{% url 'listar_uni_resumen' %}"
+       >Reporte de Empresas</a
+       >
+       <a
+       type="button"
+       class="btn btn-primary btn-lg"
+       style="background-color: #5c6bc0"
+       href="{% url 'listar_emp' %}"
+       >Reporte de Empleados</a
+       >
+       </div>
+       </div>
+        {% endif %}
+       </div>
+       <br />
+       <br />
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
